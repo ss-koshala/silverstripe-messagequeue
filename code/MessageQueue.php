@@ -6,6 +6,14 @@
  *
  * @author Mark Stephens <mark@silverstripe.com>
  */
+namespace MessageQueue;
+
+use SilverStripe\Control\Controller;
+use SilverStripe\Control\Director;
+use SilverStripe\Core\Config\Config;
+use Exception;
+use SilverStripe\View\ViewableData;
+
 class MessageQueue
 {
     /**
@@ -181,7 +189,7 @@ class MessageQueue
         self::$onshutdown_option = $option;
         self::$onshutdown_arg = $arg;
         if ($option == "phppath" && !$arg) {
-            throw new Exception("set_onshutdown_option: Path is required for phppath option");
+            throw new \Exception("set_onshutdown_option: Path is required for phppath option");
         }
     }
 
@@ -285,7 +293,7 @@ class MessageQueue
         // simpledbmq, but the interface can't provide a guaranteed method to
         // get the messages without consuming them.
         if (self::$debugging_path) {
-            $msgs = SimpleDBMQ::get();
+            $msgs = \SimpleDBMQ::get();
             if ($msgs) {
                 `echo "messages currently in queue:\n" $stdout`;
                 foreach ($msgs as $msg) {

@@ -2,6 +2,6 @@
 Name: messagequeueroutes
 After: '#rootroutes'
 ---
-Director:
+SilverStripe\Control\Director:
   rules:
     'MessageQueue_Process': 'MessageQueue_Process'

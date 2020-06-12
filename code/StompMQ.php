@@ -14,6 +14,10 @@
  *
  * @author Mark Stephens <mark@silverstripe.com>
  */
+namespace MessageQueue;
+
+use SilverStripe\Control\Director;
+use SilverStripe\ORM\ArrayList;
 
 class StompMQ implements MessageQueueImplementation
 {
@@ -40,7 +44,7 @@ class StompMQ implements MessageQueueImplementation
         require_once(Director::getAbsFile("messagequeue/thirdparty/stomp-php-1.0.0/Stomp.php"));
 
         $conf = $config["stomp"];
-        self::$conn = new Stomp($conf["server"]);
+        self::$conn = new \Stomp($conf["server"]);
 
         if (isset($conf["durableClientId"])) {
             self::$conn->clientId = $conf["durableClientId"];

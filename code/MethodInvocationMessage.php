@@ -6,6 +6,10 @@
  *
  * @author Mark Stephens <mark@silverstripe.com>
  */
+namespace MessageQueue;
+
+use SilverStripe\ORM\DataObject;
+use Exception;
 
 class MethodInvocationMessage implements MessageExecutable
 {

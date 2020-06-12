@@ -1,7 +1,7 @@
 {
 	"name": "silverstripe/messagequeue",
 	"description": "Simple and lightweight message queueing mechanism for SilverStripe applications, with queueing actions for long running process execution, message sending between installations and bi-directional interaction with external messaging systems such as ApacheMQ",
-	"type": "silverstripe-module",
+	"type": "silverstripe-vendormodule",
 	"keywords": ["silverstripe", "messagequeue"],
 	"license": "BSD-3-Clause",
 	"authors": [
@@ -12,7 +12,6 @@
 	],
 	"require":
 	{
-		"silverstripe/framework": "~3.1",
-		"composer/installers": "*"
+		"silverstripe/framework": "~4.0"
 	}
 }

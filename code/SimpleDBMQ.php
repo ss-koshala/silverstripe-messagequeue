@@ -5,6 +5,12 @@
  *
  * @author Mark Stephens <mark@silverstripe.com>
  */
+namespace MessageQueue;
+
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\ORM\DataObject;
+use SilverStripe\ORM\DB;
+use Exception;
 
 class SimpleDBMQ extends DataObject implements MessageQueueImplementation
 {
@@ -34,7 +40,7 @@ class SimpleDBMQ extends DataObject implements MessageQueueImplementation
         $result = new ArrayList();
         $limit = ($options && isset($options["limit"])) ? $options["limit"] : null;
 
-        $conn = DB::getConn();
+        $conn = DB::get_conn();
 
         // Work within a transaction
         if ($conn->supportsTransactions()) {

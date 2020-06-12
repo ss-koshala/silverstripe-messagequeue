@@ -1,4 +1,9 @@
 <?php
+namespace MessageQueue;
+
+use SilverStripe\Control\Controller;
+use SilverStripe\ORM\ArrayList;
+use Exception;
 
 class SimpleInterSSMQ implements MessageQueueImplementation
 {
